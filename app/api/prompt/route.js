@@ -13,7 +13,7 @@ export const GET = async () => {
     await connectToDb();
 
     try {
-        const result = await Prompts.find();
+        const result = await Prompt.find();
         return NextResponse.json(result.reverse(), { status: 200 });
     } catch (err) {
         return NextResponse.json("Failed to get Prompt Template.", {
