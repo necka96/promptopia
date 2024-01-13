@@ -1,23 +1,14 @@
 import Prompt from "@models/prompt";
-import { connectToDb  } from "@utils/database";
-import { NextResponse } from "next/server";
+import { connectToDb } from "@utils/database";
 
-export const dynamic = "force-dynamic";
-
-/**
- * @method GET
- * @returns NextResponse
- * @description Find All Prompts and return
- */
-export const GET = async () => {
-    await connectToDb();
-
+export const GET = async (request) => {
     try {
-        const result = await Prompt.find();
-        return NextResponse.json(result.reverse(), { status: 200 });
-    } catch (err) {
-        return NextResponse.json("Failed to get Prompt Template.", {
-            status: 500
-        });
+        await connectToDb()
+
+        const prompts = await Prompt.find({}).populate('creator')
+
+        return new Response(JSON.stringify(prompts), { status: 200 })
+    } catch (error) {
+        return new Response("Failed to fetch all prompts", { status: 500 })
     }
-};
+} 
