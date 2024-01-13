@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
  * @description Find All Prompts and return
  */
 export const GET = async () => {
-    await connectDb();
+    await connectToDb();
 
     try {
         const result = await Prompts.find();
