@@ -24,7 +24,11 @@ const Feed = () => {
 
   useEffect(() => {
     const feactPost = async () => {
-      const res = await fetch("/api/prompt");
+      const res = await fetch("/api/prompt", {
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      });
       const data = await res.json();
       setPost(data);
     };
