@@ -13,6 +13,17 @@ const nextConfig = {
     };
     return config;
   },
+  headers: () => [
+    {
+      source: "/components/Feed.jsx",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "no-store",
+        },
+      ],
+    },
+  ],
 };
 
 module.exports = nextConfig;
