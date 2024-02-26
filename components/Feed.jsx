@@ -24,7 +24,7 @@ const Feed = () => {
 
 useEffect(() => {
     const feactPost = async () => {
-      const res = await fetch("/api/prompt", {next: {revalidate: 1000});
+      const res = await fetch("/api/prompt", {next: {revalidate: 1000}});
       const data = await res.json();
       setPost(data);
     };
