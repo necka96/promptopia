@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["mongoose"],
   },
@@ -25,3 +25,5 @@ module.exports = {
     },
   ],
 };
+
+module.exports = nextConfig;
