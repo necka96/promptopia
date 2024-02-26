@@ -22,11 +22,9 @@ const Feed = () => {
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [post, setPost] = useState([]);
 
-  useEffect(() => {
+useEffect(() => {
     const feactPost = async () => {
-      const res = await fetch("/api/prompt",{
-    next: { revalidate: 10 }},
-  );
+      const res = await fetch("/api/prompt", {next: {revalidate: 1000});
       const data = await res.json();
       setPost(data);
     };
